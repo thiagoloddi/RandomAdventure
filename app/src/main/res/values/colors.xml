@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#484848</color>
+
+    <color name="sea_water">#3241af</color>
+    <color name="grass">#00b409</color>
+    <color name="clear_water">#0073ff</color>
+    <color name="beach">#e2d79f</color>
+    <color name="forest">#056400</color>
+    <color name="hill">#735200</color>
+</resources>
