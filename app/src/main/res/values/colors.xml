@@ -5,9 +5,25 @@
     <color name="colorAccent">#484848</color>
 
     <color name="sea_water">#3241af</color>
+    <color name="sea_border">#00076c</color>
     <color name="grass">#00b409</color>
+    <color name="grass_border">#009407</color>
     <color name="clear_water">#0073ff</color>
+    <color name="clear_water_border">#0056bf</color>
     <color name="beach">#e2d79f</color>
-    <color name="forest">#056400</color>
-    <color name="hill">#735200</color>
+    <color name="beach_border">#c1b787</color>
+    <color name="forest">#068100</color>
+    <color name="forest_border">#056100</color>
+    <color name="hill">#936f15</color>
+    <color name="hill_border">#765910</color>
+    <color name="null_tile">#252525</color>
+    <color name="null_border">#1e1e1e</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="life_meter_border">#545454</color>
+    <color name="life_meter_background">#ae545454</color>
+    <color name="life_meter_full">#dc210c</color>
+    <color name="life_meter_empty">#300000</color>
+    <color name="mana_meter_full">#0066ff</color>
+    <color name="mana_meter_empty">#000330</color>
+
 </resources>

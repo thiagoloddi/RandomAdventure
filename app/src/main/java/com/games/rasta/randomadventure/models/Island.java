@@ -1,62 +1,53 @@
 package com.games.rasta.randomadventure.models;
 
+import android.util.Log;
 import android.util.SparseArray;
+
+import com.games.rasta.randomadventure.GameApplication;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.games.rasta.randomadventure.engine.MapFactory.SEA_WATER;
+import static com.games.rasta.randomadventure.engine.map.MapFactory.CLEAR_WATER;
+import static com.games.rasta.randomadventure.engine.map.MapFactory.SEA_WATER;
 
-public class Island {
+public class Island extends Map {
 
-  private SparseArray<SparseArray<Tile>> island;
-  private int radius;
+  public static final int MAX_ZOOM = 9;
+  public static final int MAX_WIDTH = 25;
 
-  public Island(int radius) {
-    this.island = new SparseArray<>();
-    this.radius = radius;
+//  private SparseArray<SparseArray<Tile>> map;
 
-    this.init();
+  public Island() {
+    super(MAX_WIDTH);
   }
 
-  private void init() {
-    for(int i = 0; i < radius; i++) {
-      island.put(i, new SparseArray<Tile>());
-      for(int j = 0; j < radius; j++) {
-        island.get(i).put(i, null);
-      }
-    }
-  }
-
-  public void put(Tile tile) {
-    island.get(tile.getCoords().getY()).put(tile.getCoords().getX(), tile);
-  }
-
-  public Tile get(int x, int y) {
-    return island.get(y).get(x);
-  }
-
-  public int size() {
-    return island.size();
-  }
-
-  public void updateTilesAttributes() {
+  public void updateCoastalTiles() {
     for(int i = 0; i < radius; i ++) {
       for(int j = 0; j < radius; j ++) {
-        this.get(j, i).setCoastal(isCoastal(j, i));
+        Tile tile = this.get(j, i);
+        if(tile.getType() != SEA_WATER && tile.getType() != CLEAR_WATER) {
+          List<Tile> tiles = getSurroundingTiles(tile, SEA_WATER);
+          if(tiles.size() > 0) tile.setCoastal(true);
+        }
       }
     }
   }
 
-  private boolean isCoastal(int x, int y) {
-    for(int m = -1; m < 2; m++) {
-      for(int n = -1; n < 2; n++) {
-        int x1 = x + m;
-        int y1 = y + n;
-        if(this.inBounds(x1, y1) && this.get(x1, y1).getType() == SEA_WATER) return true;
+  public void updateLakeTiles() {
+    for(int i = 0; i < radius; i ++) {
+      for(int j = 0; j < radius; j ++) {
+        Tile tile = this.get(j, i);
+
+        if(tile.getType() != SEA_WATER && tile.getType() != CLEAR_WATER) {
+
+          List<Tile> tiles = getSurroundingTiles(tile, CLEAR_WATER);
+          if(tiles.size() > 0) {
+            tile.setHasLake(true);
+          }
+        }
       }
     }
-    return false;
   }
 
   public List<Tile> getCoastalTiles() {
@@ -65,15 +56,24 @@ public class Island {
     for(int i = 0; i < radius; i ++) {
       for(int j = 0; j < radius; j ++) {
         Tile tile = this.get(j, i);
-        if(tile.isCoastal()) tiles.add(tile);
+//        Log.d(GameApplication.TAG, "isCoastal: " + tile.isCoastal());
+        if(tile.isCoastal()) {
+          tiles.add(tile);
+        }
       }
     }
-
     return tiles;
   }
 
-  public boolean inBounds(int x, int y) {
-    return x >= 0 && x < radius && y >= 0 && y < radius;
+  public void setExplored(Coords charPosition) {
+    List<Tile> surrounding = getAllSurroundingTiles(charPosition);
+    for(Tile t: surrounding) {
+      t.setExplored(true);
+    }
   }
 
+  public Coords getInitialPosition() {
+    int coord = (MAX_WIDTH - 1) / 2;
+    return new Coords(coord, coord);
+  }
 }

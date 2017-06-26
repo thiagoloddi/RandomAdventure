@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.games.rasta.randomadventure.presentation.fragments.PadFragment">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_move_left"
+        android:elevation="3dp"
+        android:layout_width="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_move_right"
+        android:layout_width="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:elevation="3dp"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_move_up"
+        android:elevation="3dp"
+        android:layout_width="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_move_down"
+        android:elevation="3dp"
+        android:layout_width="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_explore"
+        android:elevation="3dp"
+        android:layout_width="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

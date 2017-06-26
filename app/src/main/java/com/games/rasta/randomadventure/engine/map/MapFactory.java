@@ -1,4 +1,4 @@
-package com.games.rasta.randomadventure.engine;
+package com.games.rasta.randomadventure.engine.map;
 
 import android.util.Log;
 import android.util.SparseArray;
@@ -23,17 +23,17 @@ public class MapFactory {
   private final Integer NULL = 0;
 
   private SparseArray<SparseIntArray> map;
-  private IslandFactory island;
+  private IslandFactory islandFactory;
 
-  public MapFactory() {
+  public MapFactory(IslandFactory islandFactory) {
     Log.d(GameApplication.TAG, "- INITIALIZING MAP...");
     this.initMap();
-    this.island = new IslandFactory(this);
+
+    this.islandFactory = islandFactory;
   }
 
-  public Island createMap(Double alpha) {
-
-    return this.island.createIsland();
+  public Island createMap() {
+    return this.islandFactory.createIsland();
   }
 
   public void initMap() {

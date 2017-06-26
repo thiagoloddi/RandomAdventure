@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/clear_water" />
+    <gradient
+        android:startColor="@color/mana_meter_empty"
+        android:endColor="@color/mana_meter_full"
+        android:type="linear"
+        android:gradientRadius="5dp"/>
+
+</shape>

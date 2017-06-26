@@ -5,46 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.games.rasta.randomadventure.presentation.HomeActivity">
+  android:gravity="center_vertical"
+    tools:context="com.games.rasta.randomadventure.presentation.activities.HomeActivity">
 
-    <ScrollView
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:scrollbars="horizontal">
-
-        <LinearLayout
-            android:id="@+id/map_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <LinearLayout
+    <Button
+        android:id="@+id/button_new_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/button_new_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="GERAR NOVO MAPA"/>
-
-        <EditText
-            android:id="@+id/edit_text_alpha"
-            android:layout_width="100dp"
-            android:inputType="numberDecimal"
-            android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/text_view_alpha"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
+        android:layout_marginEnd="30dp"
+        android:text="NOVO JOGO"
+        android:layout_marginStart="30dp"
+    />
 
 </LinearLayout>
